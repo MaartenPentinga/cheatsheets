@@ -1,3 +1,4 @@
+When learning for OSCP and playing tons of HackTheBox, usefull Windows stuff is learned. 
 
 __Interesting reads__
 ```
@@ -64,7 +65,7 @@ Get-Content
 ```
 
 __networking stuff__
-TCP / UDP sockets
+
 ```
 netstat -ano
 route print
