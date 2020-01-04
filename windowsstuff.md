@@ -1,5 +1,3 @@
-When learning for OSCP and playing tons of HackTheBox, usefull Windows stuff is learned. 
-
 __Interesting reads__
 ```
 http://www.labofapenetrationtester.com/2015/05/week-of-powershell-shells-day-1.html
