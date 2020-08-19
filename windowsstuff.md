@@ -76,7 +76,7 @@ ruby evil-winrm.rb -i 10.10.10.10 -u s.appel -p 'fr1s'
 ```
 
 
-#### Gather info
+### Gather info
 __cmd.exe__
 ```
 whoami
